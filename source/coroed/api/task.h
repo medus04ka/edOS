@@ -86,6 +86,18 @@ void task_yield(struct task* caller);
 void task_exit(struct task* caller);
 
 /**
+ * Перевести задачу в состояние BLOCKED и вернуть управление планировщику
+ * Используется примитивами синхронизации (event, в перспективе sleep)
+ */
+void task_block(struct task* caller);
+
+/**
+ * Разблокировать ранее заблокированную задачу (BLOCKED -> RUNNABLE)
+ * Используется примитивами синхронизации
+ */
+void task_unblock(struct task* task);
+
+/**
  * Создать дочерний файбер.
  */
 task_t task_submit(struct task* caller, uthread_routine entry, void* argument);
