@@ -141,7 +141,6 @@ struct scheduler_metrics {
 
 static struct scheduler_metrics g_metrics;
 
-
 static uint64_t now_ns(void) {
   struct timespec ts;
   clock_gettime(CLOCK_MONOTONIC, &ts);
